@@ -1,0 +1,60 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="OsuPrune_UnitTest" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Osu_UnitTest" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="UnitTest1" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Osu_UnitTest.UnitTest1.TestCatchMapCount" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="TestCatchMapCount" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Osu_UnitTest.UnitTest1.TestManiaMapCount" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="TestManiaMapCount" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Osu_UnitTest.UnitTest1.TestPlayedMapCount" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="TestPlayedMapCount" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Osu_UnitTest.UnitTest1.TestPlayedSetCount" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="TestPlayedSetCount" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Osu_UnitTest.UnitTest1.TestStandardMapCount" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="TestStandardMapCount" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Osu_UnitTest.UnitTest1.TestTaikoMapCount" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="TestTaikoMapCount" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>
