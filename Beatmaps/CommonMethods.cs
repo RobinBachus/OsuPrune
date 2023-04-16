@@ -24,7 +24,7 @@ namespace OsuPrune.Beatmaps
 
         public static string GetDownloadURL(BeatmapSet set)
         {
-            return BaseDownloadURL + set.SetID;
+            return BaseDownloadURL + set.ID;
         }
 
         public static string GetDownloadURL(int id)

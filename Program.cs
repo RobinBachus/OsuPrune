@@ -1,4 +1,5 @@
-﻿using OsuPrune.Beatmaps;
+﻿using osu_database_reader.Components.Beatmaps;
+using OsuPrune.Beatmaps;
 using System.Runtime.CompilerServices;
 using static OsuPrune.Common;
 
@@ -10,7 +11,20 @@ namespace OsuPrune
     {
         static void Main(string[] args)
         {
-            SortedSets SortedMaps = new();
+            SortedSets sortedSets = new();
+
+            List<BeatmapSet> unplayedSets = sortedSets.BeatmapSets.FindAll(set => !set.HasPlayedBeatmaps);
+            List<BeatmapEntry> unplayedMaps = new();
+            int itr = 0;
+            foreach (BeatmapSet set in sortedSets.BeatmapSets) {
+                foreach (var map in set.Beatmaps)
+                {
+                    //Console.WriteLine($"[{map.GameMode}] {map.BeatmapFileName}");
+                    //OsuFile.Beatmaps.Remove(map);
+                    if (!set.IsPlayed(map)) itr++;
+                }
+            }
+            Console.WriteLine(itr);
         }
     }
 }

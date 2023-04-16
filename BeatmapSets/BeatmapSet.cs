@@ -11,8 +11,8 @@ namespace OsuPrune.Beatmaps
         public List<BeatmapEntry> PlayedBeatmaps { get; }
         public List<KeyValuePair<BeatmapEntry, double>> Diffs { get; }
         public string FolderName { get; }
-        public int SetID { get; }
-        public string SetURL { get; }
+        public int ID { get; }
+        public string URL { get; }
         public List<GameMode> GameModes { get; }
         public bool HasPlayedBeatmaps { get; }
 
@@ -22,8 +22,8 @@ namespace OsuPrune.Beatmaps
             PlayedBeatmaps = Beatmaps.FindAll(m => m.LastPlayed > CompareDate);
             Diffs = GetDiffs(Beatmaps);
             FolderName = Beatmaps[0].FolderName;
-            SetID = Beatmaps[0].BeatmapSetId;
-            SetURL = GetBeatmapSetURL(SetID);
+            ID = Beatmaps[0].BeatmapSetId;
+            URL = GetBeatmapSetURL(ID);
             GameModes = Beatmaps.Select(beatmap => beatmap.GameMode).Distinct().ToList();
             HasPlayedBeatmaps = PlayedBeatmaps.Count > 0;
         }
@@ -52,6 +52,7 @@ namespace OsuPrune.Beatmaps
 
         public double GetDifficulty(BeatmapEntry beatmap)
         {
+            if (!Beatmaps.Contains(beatmap)) throw new ArgumentException($"Beatmap {beatmap.BeatmapFileName} is not part of this set");
             return Diffs.Find(x => x.Key.Equals(beatmap)).Value;
         }
 
@@ -114,9 +115,9 @@ namespace OsuPrune.Beatmaps
             string str = "";
             str += FolderName + "\n";
             str += "\t Info:\n";
-            str += $"\t\t Set ID: {SetID}\n";
-            str += $"\t\t Set URL: {SetURL}\n";
-            str += $"\t\t Download URL: {GetDownloadURL(SetID)}\n";
+            str += $"\t\t Set ID: {ID}\n";
+            str += $"\t\t Set URL: {URL}\n";
+            str += $"\t\t Download URL: {GetDownloadURL(ID)}\n";
             str += $"\t\t Map count: {Beatmaps.Count}\n";
             str += $"\t\t Played: {HasPlayedBeatmaps}\n";
             str += $"\t\t Played maps count: {PlayedBeatmaps.Count}\n";
